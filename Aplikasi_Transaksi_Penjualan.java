@@ -91,3 +91,16 @@ private void SetTabel(){
         tbyr.setText("");
         lkembali.setText("");
    }
+ private void SimpanData(){
+        try {
+            String sql="Insert into barang Values('"+tkd_brg.getText()+"','"+tnm_brg.getText()+"','"+thrg_jual.getText()+"','"+tjml.getText()+"','"+thrg_tot.getText()+"','"+tkd_peg.getText()+"','"+tnm_peg.getText()+"',)";
+            s.executeUpdate(sql);
+            s.close();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
+            BersihField();
+            BacaTabelPenjualan();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
