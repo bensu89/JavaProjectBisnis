@@ -138,3 +138,31 @@ private void SetTabel(){
             ltot.setText(String.valueOf(y));
         }
     }
+    
+     private void bt_kembaliActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        int i,j,kembali;
+        i=Integer.parseInt(ltot.getText());
+        j=Integer.parseInt(tbyr.getText());
+        kembali=j-i;
+        lkembali.setText(String.valueOf(kembali));
+    }                                          
+
+    private void bt_totActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        total();
+    }                                      
+
+    private void bt_tambahActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        TambahData();
+    }                                         
+
+    private void bt_hapusActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        HapusData();
+    }                                        
+
+    private void tbl_jualMouseClicked(java.awt.event.MouseEvent evt) {                                      
+       SetTabel();
+    }                                     
+
+    private void bt_simpanActionPerformed(java.awt.event.ActionEvent evt) {                                          
+       SimpanData();
+    }                       
