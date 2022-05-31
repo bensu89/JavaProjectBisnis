@@ -104,3 +104,37 @@ private void SetTabel(){
             JOptionPane.showMessageDialog(null, e);
         }
     }
+ private void TambahData(){
+      try {
+            String sql="Insert into barang Values('"+tkd_brg.getText()+"','"+tnm_brg.getText()+"','"+thrg_jual.getText()+"','"+tjml.getText()+"','"+thrg_tot.getText()+"','"+tkd_peg.getText()+"','"+tnm_peg.getText()+"',)";
+            s.executeUpdate(sql);
+            s.close();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Ditambah");
+            BersihField();
+            BacaTabelPenjualan();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void HapusData(){
+        try {
+           String sql="Delete from jual Where kd_brg='"+tkd_brg.getText()+"'";
+       s.executeUpdate(sql);
+            s.close();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus");
+            BersihField();
+            BacaTabelPenjualan();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void total(){
+        int y=0;
+        int totrec=tbl_jual.getRowCount();
+        for(int z=0;z<totrec;z++){
+            y=y+Integer.parseInt(tbl_jual.getValueAt(z, 4).toString());
+            ltot.setText(String.valueOf(y));
+        }
+    }
